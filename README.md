@@ -191,12 +191,12 @@ In the case a verifier wanted to confirm `nonce / challenge` as well as `aud / d
 const verifiedConformingDocuments = verify<W3C_VP_SD_JWT>(token: string, jwks: JsonWebKeySet, {
   presentation_content_type: 'application/vp+ld+json+sd-jwt',
   presentation_audience: 'california.dmv.verifier.example'
-  presentation_nonce: 'state-driverse-license-required-documents-presentation-546564646546516',
+  presentation_nonce: 'state-driver-license-required-documents-presentation-546564646546516',
   credential_audiences: [
     'san-francisco.dmv.verifier.example',
   ],
   credential_nonces: [
-    'city-driverse-license-required-documents-presentation-546564646546516',
+    'city-driver-license-required-documents-presentation-546564646546516',
   ]
 })
 ```
@@ -223,3 +223,11 @@ Regarding bullet point 3, the following properties would be good candidates to p
 1. [holder](https://w3c.github.io/vc-data-model/#dfn-holders).
 2. aud / domain : not currently defined in the core data model.
 3. nonce / challenge: not currently defined in the core data model.
+
+
+### Proof of Concept
+
+Attempting to align with the core data model "verification + validation" API:
+
+- [test.ts](./poc/test/worst-case.test.ts)
+- https://github.com/w3c/vc-data-model/issues/1374
